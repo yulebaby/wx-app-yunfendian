@@ -1,0 +1,494 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+.line-scroll{
+  width: 750rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #fff;
+  font-size: 36rpx;
+  background: #666666;
+  overflow: hidden;
+  
+}
+.line-scroll text{
+  width: 1750rpx;
+  display: block;
+  animation: lines 13s linear infinite;
+  -webkit-animation: lines 13s linear infinite;
+}
+@keyframes lines{
+  0%{ transform: translateX(750rpx)}
+  100%{ transform: translateX(-100%)}
+}
+@-webkit-keyframes lines{
+  0%{ -webkit-transform: translateX(750rpx)}
+  100%{ -webkit-transform: translateX(-100%)}
+}
+.main{
+  width: 750rpx;
+  background: url("https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/hbfxtopbg.png") no-repeat #FFAE30;
+  background-size: 100% auto; 
+  overflow: hidden;
+}
+.coupon{
+  width: 710rpx;
+  height: 238rpx;
+  background: url("https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg1.png") no-repeat;
+  background-size: 100% auto; 
+  margin: 0 auto;
+  margin-top: 152rpx;
+}
+.top-font view{
+  font-size: 65rpx;
+  color: #FFF;
+  text-align: center;
+  font-weight: bolder;
+  font-style: italic;
+  margin-top: 95rpx;
+  text-shadow:4rpx 4rpx 4rpx rgba(248,144,24,1);
+}
+.top-font text{
+  width: 100%;
+  display: block;
+  color: #fff;
+  font-size: 28rpx;
+  text-align: center;
+  text-shadow:0px 2px 4px rgba(249,107,7,1);
+  margin-top: 10rpx;
+}
+.coupon-left{
+  float: left;
+  margin-top: 36rpx;
+  margin-left: 50rpx;
+}
+.coupon-left view{
+  color: #FF8E04;
+  font-size: 32rpx;
+    overflow: hidden;
+  width: 300rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.coupon-left text{
+  display: block;
+  color: #919BA5;
+  font-size: 22rpx;
+  margin-top: 2rpx;
+}
+.coupon-left text:nth-child(2){
+  margin-top: 10rpx;
+}
+.coupon-right{
+  float: right;
+    margin-top: 58rpx;
+  margin-right: 40rpx;
+}
+.price>view{
+  float: right;
+}
+.price>view:nth-child(2){
+  color: #FF3F00;
+  font-size: 64rpx;
+  font-weight: bolder;
+}
+.price>view:nth-child(2) text{ 
+  font-size: 32rpx;
+}
+.price>view:nth-child(1){
+  color: #919BA5;
+  font-size: 22rpx;
+  padding-top: 49rpx;
+}
+.price>view:nth-child(1) text{
+  text-decoration: line-through;
+}
+.stock{
+  color: #919BA5;
+  font-size: 22rpx;
+  float: right;
+}
+.recommend{
+  width: 670rpx;
+  height: 624rpx;
+  background: #FFFCF8;
+  border-radius:30rpx;
+  box-shadow:0 5rpx 12rpx #FFAE3D;
+  margin: 0 auto;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+  position: relative
+}  
+.recommend-title{
+  width: 392rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+.recommend-title image{
+  width: 100%;
+  height: 88rpx;
+}
+.recommend-text{
+  color: #222222;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.recommend-text>view{
+  display: inline-block;
+}
+.recommend-text>view:nth-child(1){
+  margin-right: 30rpx;
+}
+.recommend-text>view>text{
+  background: #FF8E04;
+  color: #fff;
+  height: 28rpx;
+  width: 28rpx;
+  text-align: center;
+  line-height: 28rpx;
+  border-radius: 50%;
+  display: inline-block;
+  font-size: 22rpx;
+}
+.recommend-card{
+  width: 610rpx;
+  margin: 0 auto;
+  margin-top: 25rpx;
+  overflow: hidden;
+}
+.recommend-card>view{
+  width: 290rpx;
+  height: 224rpx;
+  background: url("https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg3.png") no-repeat;
+  background-size: 100% 100%; 
+  float: left;
+}
+.recommend-card>view:nth-child(2){
+  background: url("https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg4.png") no-repeat;
+  background-size: 100% 100%; 
+  margin-left: 30rpx;
+}
+.card-detail{
+  color: #5A93F7;
+  font-size: 22rpx;
+  text-align: center;
+  margin-top: 25rpx;
+}
+.recommend-card>view:nth-child(2) .card-detail{
+  color: #FF5633;
+}
+.card-detail text{
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.card-tit{
+  color: #fff;
+  font-size: 28rpx;
+  margin-top: 28rpx;
+  text-align: center;
+}
+.card-share.card-share{
+  width: 610rpx;
+  height: 80rpx;
+  background: url("https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg5.png") no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+.card-footer{
+  color: #919BA5;
+  font-size: 22rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.list-tit{
+  overflow: hidden;
+}
+.list-tit image{
+  width: 446rpx;
+  height: 78rpx;
+  margin-left: 172rpx;
+}
+.count-down{
+  width: 670rpx;
+  height: 220rpx;
+  background: #FFFCF8;
+  box-shadow:0px 4rpx 16rpx #FFAE3D;
+  margin: 0  auto;
+  border-radius:30rpx;
+  margin-top: 10rpx;
+  overflow: hidden;
+}
+.count-tit{
+  text-align: center;
+  color: #222222;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+.count-content{
+  margin-top: 30rpx;
+  margin-left: 62rpx;
+  color: #222222;
+  font-size: 36rpx;
+}
+.count-content text{
+  width: 80rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background: #FD5C3B;
+  display: inline-block;
+  border-radius: 10rpx;
+}
+.count-content text:last-child{
+  background: #666666;
+}
+.participate.participate{
+  margin-top: 30rpx;
+  height: auto;
+}
+.participate-content{
+  overflow: hidden;
+  margin-left: 30rpx;
+  padding-bottom: 40rpx;
+}
+.participate-content>view{
+  width: 72rpx;
+  overflow: hidden;
+  float: left;
+  margin-top: 20rpx;
+  margin-right: 20rpx;
+}
+.participate-content>view image{
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+}
+.participate-content text{
+  color: #919BA5;
+  font-size: 22rpx;
+  text-align: center;
+  display: block;
+}
+.member-content{
+  width: 610rpx;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-bottom: 10rpx;
+}
+.member-content>view{
+  height: 120rpx;
+  border-bottom: solid 2rpx #EEEEEE;
+}
+.member-content>view:last-child{
+  border: none;
+}
+
+.member-detail image{
+  width: 80rpx;
+  height: 80rpx;
+  float: left;
+  border-radius: 50%;
+    margin-top: 20rpx;
+}
+.member-text{
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+.member-text text{
+  color: #222222;
+  font-size: 28rpx;
+  display: block;
+}
+.member-text text:nth-child(2){
+  color: #919BA5;
+  font-size: 22rpx;
+  margin-top: 10rpx;
+}
+.member-status{
+  float: right;
+  color: #222222;
+  font-size: 28rpx;
+  line-height: 120rpx;
+}
+.store{
+  width: 670rpx;
+  overflow: hidden;
+  background: #FFFCF8;
+  box-shadow:0rpx 4rpx 16rpx #FFAE3D;
+  border-radius: 30rpx;
+   margin: 30rpx auto;
+}
+.store image{
+  width: 148rpx;
+  height: 148rpx;
+  float: left;
+  margin: 30rpx 20rpx 30rpx 30rpx;
+  border-radius: 20rpx;
+}
+.store-detail{
+  width: 442rpx;
+  float: left;
+}
+.store-name {
+  color: #222;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  width: 100%;
+  height: 40rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.store-address {
+  color: #919ba5;
+  font-size: 24rpx;
+  margin-top: 4rpx;
+  overflow: hidden;
+  width: 100%;
+  height: 40rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.distance{
+  color: #919BA5;
+  font-size: 22rpx;
+  text-indent: 35rpx;
+  margin-top: 4rpx;
+  background: url("https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/icon.png") no-repeat ;
+  background-size: auto 100%; 
+}
+.activity-detail{
+  width: 610rpx;
+  background: #FFFCF8;
+  box-shadow:0px 4rpx 16rpx #FFAE3D;
+  margin: 0  auto;
+  border-radius:30rpx;
+  overflow: hidden;
+  color: #222222;
+  font-size: 28rpx;
+  padding: 30rpx;
+  padding-top: 0;
+  margin-bottom: 100rpx;
+  text-indent: 40rpx;
+}
+.activity-detail image{
+  width: 100%;
+  border-radius: 20rpx;
+  margin-top: 30rpx;
+}
+.rule{
+  width:104rpx;
+height:44rpx;
+line-height: 44rpx;
+background:rgba(255,167,34,1);
+box-shadow:0px 2rpx 8rpx -2rpx rgba(255,172,46,1),-4rpx 0px 8rpx 0px rgba(255,174,48,0.8);
+border-radius:20rpx 0rpx 0rpx 20rpx;
+color: #fff;
+text-align: center;
+font-size: 20rpx;
+position: absolute;
+top: 40rpx;
+right:0;
+}
+.rule-open{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+}
+.open-main{
+  width: 650rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50rpx;
+  background:url('http://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1586832832036839.png') no-repeat top center #fff;
+  background-size: 290rpx auto; 
+  border-radius:30rpx;
+  padding-top: 120rpx;
+  transform: translateY(-50%);
+}
+.open-main view{
+  width: 570rpx;
+  margin: 0 auto;
+  color: #222222;
+  font-size: 24rpx;
+}
+.open-main text{
+  display: block;
+  width: 570rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 32rpx;
+  background: #FFC41F;
+  margin: 0 auto;
+  margin-top: 60rpx;
+  margin-bottom: 40rpx;
+  border-radius:50rpx;
+}
+.showBtn{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, .5);
+}
+.showBtnMain{
+  width: 650rpx;
+  height: 400rpx;
+  position: fixed;
+  top: 50%;
+  margin-top: -200rpx;
+  margin-left: 50rpx;
+  background:#fff;
+  border: solid 1rpx #ccc;
+  border-radius: 5rpx;
+}
+.showBtnMain text{
+  display: block;
+  margin: 0 auto;
+  font-size: 30rpx;
+  text-align: center;
+  color: #666;
+  margin-top: 110rpx;
+}
+.showBtnMain button{
+  width: 350rpx;
+  margin-top: 50rpx;
+  background: rgb(64, 158, 255);
+  color: #fff;
+}
+.music-icon{
+  background: url('http://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1587021617700145.png') no-repeat;
+  background-size: 100% auto;
+  width: 60rpx;
+  height: 60rpx;
+  position: fixed;
+  top: 284rpx;
+  right: 20rpx;
+  z-index: 3;
+}
+.music-icon.active{
+  animation: xzs 3s linear infinite;
+  -webkit-animation: xzs 3s linear infinite;
+}
+@keyframes xzs{
+  0%{ transform: rotate(0deg); }
+  100%{ transform: rotate(360deg);}
+}
+@-webkit-keyframes xzs{
+  0%{ -webkit-transform: rotate(0deg); }
+  100%{ -webkit-transform: rotate(360deg);}
+}

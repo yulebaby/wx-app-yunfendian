@@ -1,0 +1,209 @@
+/* pages/index/qrcode/qrcode.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background: #FAFAFA;
+
+}
+.content{
+  background: #fff;
+  overflow: hidden;
+}
+.title{
+  color: #222222;
+  font-size: 44rpx;
+  text-align: center;
+  margin-top: 30rpx;
+  font-weight:500;
+}
+.title text{
+  color: #FF3F00;
+}
+.qrcode{
+  width: 342rpx;
+  height: 342rpx;
+  margin: 0 auto;
+  margin-top: 30rpx;
+}
+.qrcode.active{
+  opacity: 0.4
+}
+.qrcode image{
+  width: 100%;
+  height: 100%;
+}
+.qrcode-text{
+  color: #222222;
+  font-size: 32rpx;
+  text-align: center;
+  margin-top: 32rpx;
+  font-weight: bold;
+}
+.card-detail{
+  width: 670rpx;
+  margin: 0 auto;
+  border-top: solid 2rpx #EFF0F4;
+  margin-top: 40rpx;
+  padding: 30rpx 0;
+
+}
+.card-text{
+  color: #919BA5;
+  font-size: 24rpx;
+}
+.card-text text{
+  display: block;
+}
+.qrcode-line{
+  width: 100%;
+  height: 20rpx;
+  background: #FAFAFA;
+}
+
+.store {
+  width: 670rpx;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.store image {
+  width: 148rpx;
+  height: 148rpx;
+  float: left;
+  margin: 30rpx 20rpx 30rpx 0rpx;
+  border-radius: 20rpx;
+}
+
+.store-detail {
+  width: 442rpx;
+  float: left;
+}
+
+.store-name {
+  color: #222;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  width: 100%;
+  height: 40rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.store-address {
+  color: #919ba5;
+  font-size: 24rpx;
+  margin-top: 4rpx;
+  width: 100%;
+
+}
+
+.distance {
+  color: #919ba5;
+  font-size: 22rpx;
+  text-indent: 35rpx;
+  margin-top: 4rpx;
+  background: url("https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/icon.png") no-repeat;
+  background-size: auto 100%;
+}
+.footer-bg{
+  padding-bottom: 158rpx;
+}
+.footer-btn{
+  width: 100%;
+  height: 110rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  color: #373C41;
+  font-size: 32rpx;
+  text-align: center;
+  line-height: 110rpx;
+}
+.footer-btn>view{
+  float: left;
+  width: 50%;
+}
+.footer-btn>view:nth-child(1){
+  background: #FFF1BA;
+} 
+.footer-btn>view:nth-child(2){
+  background: #FFC41F;
+} 
+.lx-btn{
+  width: 134rpx;
+  height: 134rpx;
+  position: fixed;
+  right: 28rpx;
+  bottom: 442rpx;
+}
+.lx-btn image{
+  width: 100%;
+  height: 100%;
+}
+.card-detail.already{
+  background: url('https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/already-c-icon.png') no-repeat center right;
+  background-size: auto 150rpx; 
+}
+.card-detail.invalid{
+  background: url('https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/invalid-c-icon.png') no-repeat center right;
+  background-size: auto 150rpx; 
+}
+.store-contact{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .5);
+  z-index: 11;
+}
+.contact-main{
+  width: 670rpx;
+  height: 430rpx;
+  background: #fff;
+  border-radius: 30rpx;
+  margin: 0 auto;
+  margin-top: 50%;
+  overflow: hidden;
+}
+.contact-header{
+  width: 100%;
+  height: 160rpx;
+  background:linear-gradient(131deg,rgba(255,206,10,1) 0%,rgba(255,196,31,1) 100%);
+}
+.header-main{
+  width: 100%;
+  height: 100%;
+  background: url('https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/dh-icon.png') no-repeat center  18rpx;
+  background-size: 144rpx auto;
+}
+.contact-text{
+  color: #222222;
+  font-size: 38rpx;
+  font-weight: bold;
+}
+.contact-title{
+  color: #222222;
+  font-size: 38rpx;
+  text-align: center;
+  margin-top: 30rpx;
+}
+.contact-list{
+  width: 550rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+.contact-list>view{
+  color: #222222;
+  font-size: 32rpx;
+  font-weight: normal;
+  margin-bottom: 20rpx;
+}
+.contact-list>view>text:nth-child(2){
+  width: 104rpx;
+  float: right;
+  color: #2FB6FF;
+  text-align: right;
+  border-left: solid 1px #2FB6FF;
+}

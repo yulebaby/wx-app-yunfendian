@@ -1,0 +1,61 @@
+<view class="content">
+  <view class="banner">
+    <image src="{{ shopDetail.shopImg }}"></image>
+    <view class="bannerShare">分享</view>
+  </view>
+  <view class="storeDetail">
+    <view class="storeName">{{ shopDetail.shopName }}</view>
+    <view class="distance">{{ distance < 1000 ? distance + 'm' : distance/1000 + 'km' }}</view>
+    <view class="address">
+      <text>{{ shopDetail.address }}</text>
+      <view class="right-icon">
+        <image src="/assets/images/wx.png"></image>
+        <text></text>
+        <image src="/assets/images/tel.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class="listmain activity">
+      <view class="tit-name">我的活动</view>
+      <view class="activeList" wx:if="{{ activityList.length }}">
+          <view wx:for="{{ activityList }}" wx:item = "item" wx:key = "index">
+              <image src="{{ item.headImg }}"></image>
+              <view class="active-text">
+                    <text>{{ item.activityHeadline }}</text>
+                    <view>
+                        <text>￥</text>
+                        <text>{{ item.promotionPrice }}</text>
+                        <text> ¥{{ item.orgPrice }}</text>
+                    </view>
+              </view>
+              <view class="active-btn" bindtap="toClistindex" data-id="{{ item.id }}" >
+                  立即查看
+              </view>
+          </view>
+          
+      </view>
+      <view class="nolist" wx:else>我们暂时没活动，欢迎到店~</view>
+  </view>
+    <view class="listmain use">
+      <view class="tit-name">如何用劵</view>
+      <view class="use-detail">
+          <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/lchv34b5j6j5h7b.png" mode="widthFix"></image>
+      </view>
+  </view>
+      <view class="listmain dynamic">
+      <view class="tit-name">店铺动态</view>
+      <view class="list-dynamic">
+            <view class="list-d">
+                  <view class="list-tit">活动图片（活动详细介绍图片，最多可上传9张）</view>
+                  <view class="list-img">
+                      <image src="http://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1585211527119406.jpg"></image>
+                      <image src="http://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1585211527119406.jpg"></image>
+                      <image src="http://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1585211527119406.jpg"></image>
+                      <image src="http://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1585211527119406.jpg"></image>
+                      <image src="http://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1585211527119406.jpg"></image>
+                      <image src="http://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1585211527119406.jpg"></image>
+                  </view>
+            </view>
+      </view>
+  </view>
+</view>

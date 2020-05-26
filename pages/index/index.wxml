@@ -1,0 +1,87 @@
+<view class="content">
+  <view class="nav-tab">
+    <view class="{{ tabIndex == 1 ? 'active' : '' }}" bindtap="switchTab" data-index="1">
+      <text>待使用(32)</text>
+      <text></text>
+    </view>
+    <view class="{{ tabIndex == 2 ? 'active' : '' }}" bindtap="switchTab" data-index="2">
+      <text>已使用(32)</text>
+      <text></text>
+    </view>
+    <view class="{{ tabIndex == 3 ? 'active' : '' }}" bindtap="switchTab" data-index="3">
+      <text>已失效(32)</text>
+      <text></text>
+    </view>
+  </view>
+  <!-- 待使用 -->
+  <view class="card-list" hidden="{{ tabIndex != 1 }}">
+    <view wx:for="{{ dataList }}" wx:key="index" bindtap="toQrcode">
+      <view class="card-top">
+        <view>
+          <text>9.5</text>
+          <text>折</text>
+        </view>
+        <view>
+          <text>泡泡塘游泳馆(活力东方店)泡泡塘游泳馆(活力东方店)</text>
+          <text>2020.05.01-2020.05.04</text>
+          <text>全店通用</text>
+        </view>
+        <view>
+          <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/mini-c-icon.png"></image>
+        </view>
+      </view>
+      <view class="card-bottom">
+        <view>来自：lydia赠送</view>
+        <view>转送好友</view>
+      </view>
+    </view>
+  </view>
+    <!-- 已使用 -->
+      <view class="card-list already" hidden="{{ tabIndex != 2 }}"  bindtap="toQrcode">
+    <view wx:for="{{ dataList }}" wx:key="index">
+      <view class="card-top">
+        <view>
+          <text>9.5</text>
+          <text>折</text>
+        </view>
+        <view>
+          <text>泡泡塘游泳馆(活力东方店)泡泡塘游泳馆(活力东方店)</text>
+          <text>2020.05.01-2020.05.04</text>
+          <text>全店通用</text>
+        </view>
+        <view>
+          <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/mini-c-icon.png"></image>
+        </view>
+      </view>
+      <view class="card-bottom">
+        <view>来自：lydia赠送</view>
+      </view>
+          <image mode="widthFix" src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/already-c-icon.png"></image>
+
+    </view>
+  </view>
+  <!-- 已失效 -->
+    <view class="card-list already" hidden="{{ tabIndex != 3 }}"  bindtap="toQrcode">
+    <view wx:for="{{ dataList }}" wx:key="index">
+      <view class="card-top">
+        <view>
+          <text>9.5</text>
+          <text>折</text>
+        </view>
+        <view>
+          <text>泡泡塘游泳馆(活力东方店)泡泡塘游泳馆(活力东方店)</text>
+          <text>2020.05.01-2020.05.04</text>
+          <text>全店通用</text>
+        </view>
+        <view>
+          <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/mini-c-icon.png"></image>
+        </view>
+      </view>
+      <view class="card-bottom">
+        <view>来自：lydia赠送</view>
+      </view>
+      <image mode="widthFix" src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/invalid-c-icon.png"></image>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,51 @@
+<view class="content">
+  <view class="header">
+    <view class="title">
+      <text>9.6</text>折优惠券</view>
+    <view class="{{ step != 1 ? 'qrcode active' : 'qrcode' }}">
+      <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/mini-c-icon.png"></image>
+    </view>
+    <view class="qrcode-text">买单前，出示即可享受优惠</view>
+  </view>
+  <view class="card-detail  {{ step == 2 ? 'already' : step == 3 ? 'invalid' : '' }}">
+    <view class="card-text">
+      <text>券来源：会员裂变活动</text>
+      <text>消费门槛：满0元可用</text>
+      <text>领取时间：2020.05.02 17:00</text>
+      <text>适用范围：全店通用</text>
+    </view>
+  </view>
+  <view class="qrcode-line"></view>
+  <view class="store">
+    <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/hbfxtopbg.png"></image>
+    <view class="store-detail">
+      <view class="store-name">这是一个门店的名字</view>
+      <view class="store-address">这是门店的地址这是门店的地址这是门店的地址这是门店的地址</view>
+      <view class="distance">
+          8km</view>
+      </view>
+    </view>
+    <view class="qrcode-line"></view>
+    
+  </view>
+  <view class="lx-btn" wx:if="{{ step == 1 }}"><image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/activity/lx-store.png"></image></view>
+      <view class="footer-bg"></view>
+      <view class="footer-btn">
+          <view>转发好友</view>
+          <view>输入金额买单</view>
+      </view>
+<view class="store-contact">
+    <view class="contact-main">
+        <view class="contact-header">
+              <view class="header-main"></view>
+        </view>
+        <view class="contact-text">
+            <view class="contact-title">联系店主</view>
+            <view class="contact-list">
+                <view><text>店主手机：18666661234</text><text></text><text>拨打</text></view>
+                <view><text>店主微信：xxx66666</text><text></text><text>复制</text></view>
+            </view>
+        </view>
+    </view>
+    
+</view>      
