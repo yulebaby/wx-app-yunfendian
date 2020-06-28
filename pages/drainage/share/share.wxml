@@ -67,11 +67,12 @@
           <view class="card-tit">我可得</view>
         </view>
       </view>
-
       <button class="card-share" open-type="share" bindtap="onShareAppMessage" ></button>
       <view class="card-footer">奖励金在1个工作日内存入你的微信钱包</view>
     </view>
 
+
+<!--  -->
     <view class="list-tit">
       <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg6.png"></image>
     </view>

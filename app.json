@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/index/index",
+    "pages/user/user",
     "pages/index/qrcode/qrcode",
     "pages/drainage/index/index",
     "pages/drainage/share/share",
@@ -9,7 +10,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "云分店",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
@@ -18,5 +19,27 @@
       "scope.userLocation": {
         "desc": "您的位置信息将用于小程序位置接口的效果展示"
       }
+    },
+    "tabBar": {
+      "color": "#ccc",
+      "selectedColor": "#FD9A47",
+      "borderStyle": "black",
+      "backgroundColor": "#fff",
+      "list": [
+        {
+          "iconPath": "assets/images/tab-1.png",
+          "selectedIconPath": "assets/images/tab-1-s.png",
+          "pagePath": "pages/index/index",
+          "text": "云分店"
+        },
+        {
+          "iconPath": "assets/images/tab-2.png",
+          "selectedIconPath": "assets/images/tab-2-s.png",
+          "pagePath": "pages/user/user",
+          "text": "我的"
+        }
+
+
+      ]
     }
 }

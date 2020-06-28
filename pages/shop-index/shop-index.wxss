@@ -173,7 +173,7 @@
   font-weight: normal;
   text-decoration: line-through;
 }
-.active-btn{
+.active-btn.active-btn{
   width: 152rpx;
   height: 60rpx;
   float: right;
@@ -183,4 +183,7 @@
   color: #373C41;
   font-size: 28rpx;
   background: #FFC41F;
+  padding: 0;
+  margin: 0;
+  font-weight: normal;
 }

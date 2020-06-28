@@ -1,0 +1,41 @@
+/* pages/user/user.wxss */
+.headImg{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 46rpx;
+  overflow: hidden;
+}
+.nickName{
+  color: #222222;
+  font-size: 38rpx;
+  margin-top: 30rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.list:nth-child(1){
+  width: 670rpx;
+  margin: 0 auto;
+  height: 124rpx;
+  line-height: 124rpx;
+  color: #222222;
+  text-indent: 20rpx;
+  background: url(https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/store/icon-right-o.png) no-repeat right center;
+  background-size: 15.2rpx 27.2rpx;
+  border-bottom: solid 2rpx #EFF0F4;
+}
+.list:nth-child(2){
+  width: 670rpx;
+  margin: 0 auto;
+  height: 124rpx;
+  line-height: 124rpx;
+  color: #222222;
+  text-indent: 20rpx;
+  border-bottom: solid 2rpx #EFF0F4;
+  font-weight: bold;
+}
+.list:nth-child(2) text:nth-child(2){
+  float: right;
+  margin-right: 20rpx;
+}

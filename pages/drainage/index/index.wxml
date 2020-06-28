@@ -33,9 +33,53 @@
 
         </view>
       </view>
-      <view class="card-share" bindtap="showInputs"></view>
 
     </view>
+
+    <view class="recommend">
+
+      <view class="recommend-title">
+        <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg2.png"></image>
+      </view>
+      <view class="recommend-text">
+        <view>
+          <text>1</text> 推荐给好友购买
+        </view>
+        <view>
+          <text>2</text> 奖励红包到账
+        </view>
+      </view>
+      <view class="recommend-card">
+        <view>
+          <view class="card-detail" wx:if="{{ activityDetail.activityPrizes.length }}">
+            <view>精美礼品</view>
+            <view>价值
+              <text>{{ prizeMax }}</text> 元</view>
+            <view>到店领取</view>
+          </view>
+
+       <view class="card-detail" wx:else>
+            <view>超值购买</view>
+            <view>价值
+              <text>{{ activityDetail.orgPrice }}</text> 元</view>
+            <view>到店领取</view>
+          </view>
+
+          <view class="card-tit">好友可得</view>
+        </view>
+        <view>
+          <view class="card-detail">
+            <view>现金红包</view>
+            <view wx:if="{{ activityDetail.activityRedpacketRule.fixValue }}"><text>{{ activityDetail.activityRedpacketRule.fixValue }}</text> 元</view>
+            <view wx:else><text>{{ activityDetail.activityRedpacketRule.minValue }}-{{ activityDetail.activityRedpacketRule.maxValue }}</text> 元</view>
+            <view>自动到账</view>
+          </view>
+          <view class="card-tit">我可得</view>
+        </view>
+      </view>
+      <view class="card-footer">奖励金在1个工作日内存入你的微信钱包</view>
+    </view>
+
     <view class="list-tit" wx:if="{{ activityDetail.activityPrizes.length }}">
       <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg11.png"></image>
     </view>
@@ -102,7 +146,7 @@
     </view>
 
     <view class="store">
-      <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/hbfxtopbg.png"></image>
+      <image src="{{ shopBaseInfo.shopImg }}"></image>
       <view class="store-detail">
         <view class="store-name">{{ shopBaseInfo.shopName }}</view>
         <view class="store-address">{{ shopBaseInfo.address }}</view>
@@ -180,3 +224,7 @@
     </view>
   </view>
     <view class="music-icon {{ playMusic ? 'active' : '' }}" wx:if="{{ activityDetail.musicId }}"  bindtap="toggleMusic"></view>
+    <view class="footer">
+      <view><button  open-type="share" bindtap="onShareAppMessage" ></button></view>
+        <view><button  bindtap="showInputs"></button></view>
+    </view>

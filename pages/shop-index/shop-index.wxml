@@ -28,9 +28,7 @@
                         <text> ¥{{ item.orgPrice }}</text>
                     </view>
               </view>
-              <view class="active-btn" bindtap="toClistindex" data-id="{{ item.id }}" >
-                  立即查看
-              </view>
+              <button class="active-btn" open-type="getUserInfo" bindgetuserinfo="toClistindex" data-id="{{ item.id }}">立即查看</button>
           </view>
           
       </view>

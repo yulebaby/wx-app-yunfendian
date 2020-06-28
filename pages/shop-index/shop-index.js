@@ -17,21 +17,11 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    this.setData({
-      shopDetail: app.shopDetail
-    });
-    this.getActivityList();
-    wx.getLocation({
-      type: 'wgs84',
-      success: function (res) {
-        that.getDistance(res.latitude, res.longitude);
+      this.setData({
+        id: options.id
+      });
+    this.getData();
       },
-      fail: function (res) {
-        console.log(res);
-      }
-    })
-
-  },
   getDistance(latitude, longitude) {
     let that = this;
     wx.showLoading({
@@ -39,7 +29,7 @@ Page({
       mask: true
     });
     Http.get('/shop/distance', {
-      shopId: app.shopDetail.id,
+      shopId: this.data.shopDetail.id,
       latitude,
       longitude
     }).then(res => {
@@ -62,7 +52,7 @@ Page({
     let that = this;
     Http.get('/activity/getActivityListByStoreId', {
       paramJson: JSON.stringify({
-        storeId: app.shopDetail.id
+        storeId: this.data.shopDetail.id
       })
     }).then(res => {
       if (res.result == 1000) {
@@ -75,9 +65,38 @@ Page({
   toClistindex(e) {
     let that = this;
     let id = e.currentTarget.dataset.id;
-    let path = `/pages/drainage/index/index?id=${id}&openId=${app.userInfo.openId}&nickName=${app.userInfo.nickName}&headImg=${app.userInfo.headImg}`;
-
+    
+    let path = `/pages/drainage/index/index?id=${id}&openId=${app.openId}&nickName=${e.detail.userInfo.nickName}&headImg=${e.detail.userInfo.avatarUrl}`;
+    wx.navigateTo({
+      url: path,
+    })
   },
-
+  getData() {
+    let that = this;
+    Http.get('/activity/showActivityDetail', {
+      activityId: this.data.id
+    }).then(res => {
+      if (res.result == 1000) {
+          that.setData({
+            shopDetail: res.data.shopBaseInfo
+          })
+          console.log();
+        that.getActivityList();
+        wx.getLocation({
+          type: 'wgs84',
+          success: function (res) {
+            that.getDistance(res.latitude, res.longitude);
+          }
+        })
+      } else {
+        wx.showModal({
+          title: '温馨提示',
+          showCancel: false,
+          content: res.message,
+        })
+        wx.hideLoading();
+      }
+    });
+  },
 
 })

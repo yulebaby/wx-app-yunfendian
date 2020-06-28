@@ -15,6 +15,7 @@ Page({
     playMusic: true,
     buttonUserInfo: false,
     listName: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十'],
+    payStatus: false,
     joinRecord: [],
     joinCount: 0,
     shopBaseInfo: {},
@@ -334,10 +335,19 @@ Page({
       purchaseShow: false
     })
   },
-  showInputs(){
-    this.setData({
-      purchaseShow: true
-    })   
+  showInputs(e){
+    if (this.data.payStatus){
+      wx.showModal({
+        title: '温馨提示',
+        content: '您已经购买过了，不能重复购买哦~',
+        showCancel: false
+      })
+    }else{
+      this.setData({
+        purchaseShow: true
+      })   
+    }
+
   },
   ifForm(name){
     this.setData({
@@ -345,6 +355,16 @@ Page({
       nofromText: `${ name }不能为空`
     })
     return false;
+  },
+  /******** 分享好友 *********/
+
+  onShareAppMessage() {
+    let that = this;
+    return {
+      title: '云分店卡券',
+      path: `/pages/drainage/index/index?id=${that.data.id}&openId=${app.openId}&nickName=${that.data.userInfo.nickName}&headImg=${that.data.userInfo.avatarUrl}`,
+      imageUrl: 'https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/hbfxtopbg.png'
+    }
   },
   purchaseSubmit(){
     let otherContent = this.data.otherContent;
@@ -456,8 +476,11 @@ Page({
     }).then(res => {
       if (res.result == 1000) {
         if (res.data.payStatus){
-          wx.redirectTo({
-            url: `/pages/drainage/share/share?id=${that.data.id}&openId=${app.openId}&nickName=${that.data.userInfo.nickName}&headImg=${that.data.userInfo.avatarUrl}`,
+          // wx.redirectTo({
+          //   url: `/pages/drainage/share/share?id=${that.data.id}&openId=${app.openId}&nickName=${that.data.userInfo.nickName}&headImg=${that.data.userInfo.avatarUrl}`,
+          // })
+          that.setData({
+            payStatus: true
           })
             
         }

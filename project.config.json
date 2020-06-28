@@ -81,6 +81,7 @@
 					"id": -1,
 					"name": "优惠券二维码",
 					"pathName": "pages/index/qrcode/qrcode",
+					"query": "",
 					"scene": null
 				}
 			]
