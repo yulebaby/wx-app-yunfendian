@@ -1,7 +1,5 @@
 const app = getApp();
 const Http = require('../../../utils/request.js');
-const getUserInfo = require('../../../utils/getUserInfo.js');
-
 const back = wx.getBackgroundAudioManager();
 
 Page({
@@ -28,7 +26,9 @@ Page({
     nofromText: null,
     isformText: false,
     latitude: null,
-    longitude: null
+    longitude: null,
+    endActivity: false,
+    endStatus: -1
   },
 
   /**
@@ -87,7 +87,9 @@ Page({
         if (res.data.activity.musicId){
           that.getMusic(res.data.activity.musicId);
         }
-        app.shopDetail = res.data.shopBaseInfo;
+        
+        
+
         res.data.activity.startTime = that.format(res.data.activity.startTime);
         res.data.activity.endTime = that.format(res.data.activity.endTime);
         res.data.activity.activityImgs = res.data.activity.activityImgs.split(',');
@@ -98,7 +100,40 @@ Page({
           shopBaseInfo: res.data.shopBaseInfo
         })
         let endTime = new Date(res.data.activity.endTime.replace(/-/g, '/') + ' 23:59:59').getTime();
-        that.getCountDown(endTime);
+        const shopBaseInfo = res.data.shopBaseInfo;
+        app.shopDetail = res.data.shopBaseInfo;
+
+        const nowDate = new Date().getTime();
+
+        const expireDate = (res && shopBaseInfo.expireDate && new Date(shopBaseInfo.expireDate).getTime()) || null;
+        if (!expireDate || (nowDate > expireDate)) {
+          let countDown = {
+            d:  0,
+            h: 0,
+            m:  0,
+            s: 0
+          }
+          this.setData({
+            countDown,
+            endActivity:true,
+            endStatus : 1
+          })
+        } else if (nowDate > endTime){
+          let countDown = {
+            d: 0,
+            h: 0,
+            m: 0,
+            s: 0
+          }
+          this.setData({
+            countDown,
+            endActivity: true,
+            endStatus: 2
+          })
+        }else{  
+          that.getCountDown(endTime);
+        }
+
         if (this.data.latitude) {
           that.getDistance(that.data.latitude, that.data.longitude);
         }
@@ -111,6 +146,14 @@ Page({
         wx.hideLoading();
       }
     });
+  },
+  getShopInfo(id){
+    return new Promise((resolve,reject)=>{
+      Http.get(`/activity/shop/${id }`, {
+      }).then(res => {
+        resolve(res.data);
+      })
+    })
   },
   getCountDown: function (endTime) {
     var surplus = parseInt((endTime - new Date().getTime()) / 1000);
@@ -247,7 +290,7 @@ Page({
     }).then(res => {
       if (res.result == 1000) {
         res.data.map(item => {
-          item.entryTime = that.format(item.entryTime);
+          item.entryTime = item.entryTime.replace(/-/g,'.');
         })
         that.setData({
           friendsList: res.data
@@ -506,8 +549,26 @@ Page({
         playMusic: true
       })
     }
+    },
+  toStoreList(e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/shop-index/shop-index?id=${id}`,
+    })
   },
-
-
-
+  /** 我要制作 **/
+  toStoreDeit(){
+    let path = '/pages/index/index';
+    wx.navigateToMiniProgram({
+      appId: 'wxcd43d6c8aa6558c2', // 要跳转的小程序的appid
+      path: path, // 跳转的目标页面
+      envVersion: "develop",
+      extarData: {
+        open: 'auth'
+      },
+      success(res) {
+        // 打开成功  
+      }
+    })
+  }
 })

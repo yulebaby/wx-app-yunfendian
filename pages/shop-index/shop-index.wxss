@@ -8,6 +8,10 @@
   width: 100%;
   height: 100%;
 }
+.swiper-item,swiper{
+  width: 750rpx;
+  height: 380rpx;
+}
 .bannerShare{
   width: 120rpx;
   height: 60rpx;

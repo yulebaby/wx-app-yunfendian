@@ -2,9 +2,9 @@
     <view class="headImg"><open-data type="userAvatarUrl"></open-data></view>
     <view class="nickName"><open-data type="userNickName"></open-data></view>
     <view class="main">  
-        <view class="list">
+        <!-- <view class="list">
           隐私协议
-        </view>
+        </view> -->
         <view class="list">
           <text>版本号</text>
           <text>V1.0.2</text>

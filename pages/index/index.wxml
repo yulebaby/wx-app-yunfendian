@@ -1,33 +1,52 @@
 <view class="content">
-    <view class="list" wx:for="{{ dataList }}" wx:key="index" wx:if="{{ !item.isShow }}">
-        <view class="store" bindtap="toStore" data-activity_id="{{ item.activity_id }}">
+  <view class="bg-title" wx:if="{{ dataList.length }}">
+    <view>参与的活动</view>
+    <view></view>
+  </view>
+  <view class="list" wx:for="{{ dataList }}" wx:key="index" wx:if="{{ !item.isShow }}">
+    <view class="store" bindtap="toStore" data-activity_id="{{ item.activity_id }}">
+      <image src="{{ item.shop_img }}"></image>
+      <text>{{ item.shop_name }}</text>
+      <view>{{ item.distance
+        < 1000 ? item.distance + 'm' : item.distance/1000 + 'km' }}</view>
+      </view>
+      <view class="activity">
+        <button open-type="getUserInfo" data-id="{{ item.activity_id }}" bindgetuserinfo="toDetail">获取信息</button>
+        <view class="activity-left">
+          <image src="{{ item.head_img }}"></image>
+        </view>
+        <view class="activity-right">
+          <view>{{ item.activity_headline }}</view>
+          <text wx:if="{{ item.countDown.d == 0 && item.countDown.h == 0 && item.countDown.m == 0 && tem.countDown.s == 0 }}"></text>
+          <text wx:else>距结束 {{ item.countDown.d }}天{{ item.countDown.h }}:{{ item.countDown.m }}:{{ item.countDown.s }}</text>
+        </view>
+      </view>
+      <view class="list-btn">
+        <view>
+          推荐好友
+          <button wx:if="{{ buttonUserInfo  }}" open-type="getUserInfo" bindgetuserinfo="shareGetUserInfo">获取信息</button>
+          <button wx:else open-type="share" bindtap="onShareAppMessage" data-id="{{ item.activity_id }}">推荐领红包</button>
+        </view>
+        <view>
+          查看详情
+          <button open-type="getUserInfo" data-id="{{ item.activity_id }}" bindgetuserinfo="toDetail">获取信息</button>
+        </view>
+      </view>
+    </view>
+
+    <view class="bg-title" wx:if="{{ storeList.length }}">
+      <view>关注的门店</view>
+      <view></view>
+    </view>
+    <view class="store-list">
+        <view wx:for="{{ storeList }}" wx:key="index" bindtap="toStoreIndex" data-id="{{item.shop_id}}">
             <image src="{{ item.shop_img }}"></image>
-            <text>{{ item.shop_name }}</text>
-            <view>{{ item.distance < 1000 ? item.distance + 'm' :  item.distance/1000 + 'km' }}</view>
-        </view>
-        <view class="activity">
-            <view class="activity-left">
-                <image src="{{ item.head_img }}"></image>
-            </view>
-            <view class="activity-right">
-                <view>{{ item.activity_headline }}</view>
-                <text wx:if="{{ item.countDown.d == 0 && item.countDown.h == 0 && item.countDown.m == 0 && tem.countDown.s == 0 }}"></text>
-                <text wx:else>距结束 {{ item.countDown.d }}天{{ item.countDown.h }}:{{ item.countDown.m }}:{{ item.countDown.s }}</text>
-            </view>
-        </view>
-        <view class="list-btn">
-            <view>
-            推荐好友
-                <button wx:if="{{ buttonUserInfo  }}" open-type="getUserInfo" bindgetuserinfo="shareGetUserInfo">获取信息</button>
-                <button wx:else open-type="share" bindtap="onShareAppMessage" data-id="{{ item.activity_id }}" >推荐领红包</button>
-            </view>
-            <view >
-                  查看详情
-                  <button  open-type="getUserInfo" data-id="{{ item.activity_id }}" bindgetuserinfo="toDetail">获取信息</button>
+            <view class="store-list-detail">
+                <view>{{ item.shop_name }}</view>
+                <view>{{ item.address }}</view>
+                <view>{{ item.distance
+        < 1000 ? item.distance + 'm' : item.distance/1000 + 'km' }}</view>
             </view>
         </view>
     </view>
-
-
-
-</view>
+  </view>

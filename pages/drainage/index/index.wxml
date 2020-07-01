@@ -58,7 +58,7 @@
             <view>到店领取</view>
           </view>
 
-       <view class="card-detail" wx:else>
+          <view class="card-detail" wx:else>
             <view>超值购买</view>
             <view>价值
               <text>{{ activityDetail.orgPrice }}</text> 元</view>
@@ -70,8 +70,10 @@
         <view>
           <view class="card-detail">
             <view>现金红包</view>
-            <view wx:if="{{ activityDetail.activityRedpacketRule.fixValue }}"><text>{{ activityDetail.activityRedpacketRule.fixValue }}</text> 元</view>
-            <view wx:else><text>{{ activityDetail.activityRedpacketRule.minValue }}-{{ activityDetail.activityRedpacketRule.maxValue }}</text> 元</view>
+            <view wx:if="{{ activityDetail.activityRedpacketRule.fixValue }}">
+              <text>{{ activityDetail.activityRedpacketRule.fixValue }}</text> 元</view>
+            <view wx:else>
+              <text>{{ activityDetail.activityRedpacketRule.minValue }}-{{ activityDetail.activityRedpacketRule.maxValue }}</text> 元</view>
             <view>自动到账</view>
           </view>
           <view class="card-tit">我可得</view>
@@ -99,7 +101,6 @@
           </view>
         </view>
       </view>
-
     </view>
 
     <view class="list-tit">
@@ -130,22 +131,22 @@
         <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg7.png"></image>
       </view>
       <view class="member-content">
-            <view wx:for="{{ friendsList }}" wx:key="index">
-                <view class="member-detail">
-                    <image src="{{ item.headImg }}"></image>
-                    <view class="member-text">
-                          <text>{{ item.nickName }}</text>
-                          <text>{{ item.entryTime }}</text>
-                    </view>
-                    <view class="member-status">{{ item.payStatus ==0 ? '未' : '已' }}购买，{{ item.cashingStatus ==0 ? '未' : '已' }}到店</view>
-                </view>
+        <view wx:for="{{ friendsList }}" wx:key="index">
+          <view class="member-detail">
+            <image src="{{ item.headImg }}"></image>
+            <view class="member-text">
+              <text>{{ item.nickName }}</text>
+              <text>{{ item.entryTime }}</text>
             </view>
-   
-          
+            <view class="member-status">{{ item.payStatus ==0 ? '未' : '已' }}购买，{{ item.cashingStatus ==0 ? '未' : '已' }}到店</view>
+          </view>
+        </view>
+
+
       </view>
     </view>
 
-    <view class="store">
+    <view class="store" bindtap="toStoreList" data-id="{{ shopBaseInfo.id }}">
       <image src="{{ shopBaseInfo.shopImg }}"></image>
       <view class="store-detail">
         <view class="store-name">{{ shopBaseInfo.shopName }}</view>
@@ -218,13 +219,34 @@
           </view>
 
         </view>
-        <view class="isform" wx:if="{{ isformText }}" >{{ nofromText }}</view>
+        <view class="isform" wx:if="{{ isformText }}">{{ nofromText }}</view>
         <view class="submit-purchase" bindtap="submitUserInfo">确定</view>
       </view>
     </view>
   </view>
-    <view class="music-icon {{ playMusic ? 'active' : '' }}" wx:if="{{ activityDetail.musicId }}"  bindtap="toggleMusic"></view>
-    <view class="footer">
-      <view><button  open-type="share" bindtap="onShareAppMessage" ></button></view>
-        <view><button  bindtap="showInputs"></button></view>
+  <view class="music-icon {{ playMusic ? 'active' : '' }}" wx:if="{{ activityDetail.musicId }}" bindtap="toggleMusic"></view>
+  <view class="footer-bottom"></view>
+  <view class="footer" wx:if="{{ !endActivity && !payStatus }}">
+    <view>
+      <button open-type="share" bindtap="onShareAppMessage"></button>
     </view>
+    <view>
+      <button bindtap="showInputs"></button>
+    </view>
+  </view>
+  <view class="footer-share" wx:if="{{ !endActivity && payStatus }}">
+    <button open-type="share" bindtap="onShareAppMessage"></button>
+  </view>
+
+  <view class="footer-share" wx:if="{{ !endActivity && payStatus }}">
+    <button open-type="share" bindtap="onShareAppMessage"></button>
+  </view>
+
+  <view class="footer-text" wx:if="{{ endActivity }}">
+   {{ endStatus == 1 ? '商家未开通VIP系统~' : endStatus == 2 ? '活动已经结束咯~' : '' }}
+  </view>
+
+  <view class="make" bindtap="toStoreDeit">
+    <text>我要</text>
+    <text>制作</text>
+  </view>

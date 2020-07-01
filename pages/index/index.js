@@ -4,7 +4,8 @@ Page({
   data: {
     tabIndex: 1,
     dataList: [],
-    buttonUserInfo: false
+    buttonUserInfo: false,
+    storeList: []
   },
 
   onLoad: function () {
@@ -42,12 +43,11 @@ Page({
       if (res.result == 1000) {
         res.data.map((item, index) => {
           item.isShow = true;
-          this.getlocations(item.shop_id, index);
+          this.getlocations(1,item.shop_id, index);
         })
         this.setData({
           dataList: res.data
         })
-        console.log(this.data.dataList);
         this.getCountDown();
       }
       wx.hideLoading();
@@ -84,13 +84,13 @@ Page({
 
 
   getLogin(code) {
-    const that = this;
     Http.get('/activity/getLoginAuthorization', {
       code
     }).then(res => {
       if (res.result == 1000) {
         app.openId = res.data;
-        that.getData(res.data);
+        this.getData(res.data);
+        this.getStoreList(res.data);
       }
       wx.hideLoading();
 
@@ -104,7 +104,7 @@ Page({
       url: `../drainage/index/index?id=${ id }`,
     })
   },
-  getlocations(shopId,index) {
+  getlocations(type,shopId,index) {
     let that = this;
     wx.getLocation({
       type: 'wgs84',
@@ -113,15 +113,14 @@ Page({
           latitude: res.latitude,
           longitude: res.longitude
         })
-        that.getDistance(res.latitude, res.longitude, shopId, index);
+        that.getDistance(type,res.latitude, res.longitude, shopId, index);
       },
       fail: function (res) {
         console.log(res);
       }
     })
   },
-  getDistance(latitude, longitude, shopId, index) {
-    let that = this;
+  getDistance(type,latitude, longitude, shopId, index) {
     wx.showLoading({
       title: '加载中...',
       mask: true
@@ -132,8 +131,8 @@ Page({
       longitude
     }).then(res => {
       if (res.result == 1000) {
-        const data = "dataList[" + index + "].distance";
-        that.setData({
+        const data = type == 1 ? "dataList[" + index + "].distance" : "storeList[" + index + "].distance";
+        this.setData({
           [data] : parseInt(res.data)
         })
         wx.hideLoading();
@@ -175,6 +174,30 @@ Page({
     const id = e.currentTarget.dataset.activity_id;
     wx.navigateTo({
       url: `../shop-index/shop-index?id=${ id }`,
+    })
+  },
+  getStoreList(openId){
+    Http.get('/activity/getMyShopList', {
+      openId
+    }).then(res => {
+      if (res.result == 1000) {
+        res.data.map((item,index)=>{
+          this.getlocations(2, item.shop_id, index);
+        })
+          this.setData({
+            storeList :res.data
+          })
+      }
+      wx.hideLoading();
+
+    }).catch((err) => {
+      console.log(err);
+    });
+  },
+  toStoreIndex(e){
+    const id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: `/pages/shop-index/shop-index?id=${id }`,
     })
   }
 })

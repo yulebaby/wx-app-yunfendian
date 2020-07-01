@@ -7,7 +7,6 @@
   box-shadow:0 4rpx 14rpx 0 rgba(239,240,244,1);
   border-radius:30rpx;
   margin: 0 auto;
-  margin-top: 40rpx;
 }
 .store{
   width: 610rpx;
@@ -43,6 +42,16 @@
   margin: 0 auto;
   margin-top: 28rpx;
   overflow: hidden;
+  position: relative;
+}
+.activity.activity.activity>button{
+  width: 610rpx;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  opacity: 0;
 }
 .activity-left{
   width: 232rpx;
@@ -104,4 +113,63 @@
   background: url('https://ylbb-business.oss-cn-beijing.aliyuncs.com/2020/1590474812478321.png') no-repeat 66rpx center; 
   background-size:auto 48rpx ; 
 
+}
+.bg-title {
+margin: 0 auto;
+color: #222;
+font-size: 32rpx;
+font-weight: bold;
+text-indent: 52rpx;
+background: url('https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/tit-icon-dsju6984730i.png') no-repeat center left;
+background-size: 38rpx 38rpx;
+height: 124rpx;
+line-height: 124rpx;
+position: relative;
+width: 670rpx;
+}
+.bg-title view{
+  float: left;
+}
+.bg-title view:last-child{
+  float: right;
+  padding-right: 32rpx;
+  background: url(https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/store/icon-right-o.png) no-repeat right center;
+background-size: 15.2rpx 27.2rpx;
+color: #666666;
+font-size: 28rpx;
+font-weight: normal;
+}
+.store-list{
+  width: 670rpx;
+  margin: 0 auto;
+}
+.store-list>view>image{
+  width: 148rpx;
+  height: 148rpx;
+  float: left;
+  border-radius: 20rpx;
+}
+.store-list-detail{
+  color: #222222;
+  font-size: 28rpx;
+  float: left;
+  margin-left: 20rpx;
+  width: 480rpx;
+}
+.store-list-detail>view{
+  float: left;
+  width: 100%;
+}
+.store-list-detail>view:nth-child(2){
+  color: #919BA5;
+  font-size: 24rpx;
+    margin-top: 4rpx;
+}
+.store-list-detail>view:nth-child(3){
+  color: #919BA5;
+  font-size: 22rpx;
+  margin-top: 4rpx;
+  background: url("https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/icon.png") no-repeat left center;
+  background-size: 25rpx auto;
+  text-indent: 30rpx;
 }

@@ -16,14 +16,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let that = this;
       this.setData({
         id: options.id
       });
     this.getData();
       },
   getDistance(latitude, longitude) {
-    let that = this;
     wx.showLoading({
       title: '加载中...',
       mask: true
@@ -34,7 +32,7 @@ Page({
       longitude
     }).then(res => {
       if (res.result == 1000) {
-        that.setData({
+        this.setData({
           distance: parseInt(res.data)
         })
         wx.hideLoading();
@@ -49,21 +47,19 @@ Page({
     });
   },
   getActivityList() {
-    let that = this;
     Http.get('/activity/getActivityListByStoreId', {
       paramJson: JSON.stringify({
         storeId: this.data.shopDetail.id
       })
     }).then(res => {
       if (res.result == 1000) {
-        that.setData({
+        this.setData({
           activityList: res.data.list
         })
       }
     });
   },
   toClistindex(e) {
-    let that = this;
     let id = e.currentTarget.dataset.id;
     
     let path = `/pages/drainage/index/index?id=${id}&openId=${app.openId}&nickName=${e.detail.userInfo.nickName}&headImg=${e.detail.userInfo.avatarUrl}`;
@@ -72,21 +68,20 @@ Page({
     })
   },
   getData() {
-    let that = this;
-    Http.get('/activity/showActivityDetail', {
-      activityId: this.data.id
+    Http.get('/activity/shop', {
+      id: this.data.id
     }).then(res => {
       if (res.result == 1000) {
-          that.setData({
-            shopDetail: res.data.shopBaseInfo
+        res.data.shopImgList = res.data.shopImg.split(',');
+          this.setData({
+            shopDetail: res.data
           })
-          console.log();
-        that.getActivityList();
+        this.getActivityList();
         wx.getLocation({
           type: 'wgs84',
-          success: function (res) {
-            that.getDistance(res.latitude, res.longitude);
-          }
+          success:(res=>{
+            this.getDistance(res.latitude, res.longitude);
+          })
         })
       } else {
         wx.showModal({

@@ -10,8 +10,6 @@
  */
 const App = getApp();
 const Domain = App.domain;
-const getUserInfo = require('./getUserInfo.js');
-
 const Get = (url, param) => {
   return new Promise((resolve, reject) => {
     let requestPath = url.substr(0, 4) === 'http' ? url : `${Domain}${url}`;
@@ -48,21 +46,8 @@ const Post = (url, param) => {
         'token': App.token
       },
       success(res) {
-        if (res.data.result == 7777) {
-          getUserInfo().then(userInfo);
-          wx.showToast({
-            title: '登录过期，请重新操作',
-            icon: 'none'
-          })
-          setTimeout(res=>{
-            // wx.redirectTo({
-            //   url: '/pages/index/index',
-            // })
-          },1500);
- 
-        } else {
           resolve(res.data);
-        }
+
       },
       fail(err) {
         reject(err);
