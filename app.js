@@ -5,8 +5,10 @@ App({
     token: null,
     latitude: '',
     longitude: '',
-    cityid: ''
+    cityid: '',
   },
+  envVersion: 'develop', //跳转体验版
+    // envVersion: 'release', //跳转正式版
   shopDetail: {},
   token: null,
   //domain: 'http://39.107.232.95:6086/cloudstore'

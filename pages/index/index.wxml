@@ -4,7 +4,7 @@
     <view></view>
   </view>
   <view class="list" wx:for="{{ dataList }}" wx:key="index" wx:if="{{ !item.isShow }}">
-    <view class="store" bindtap="toStore" data-activity_id="{{ item.activity_id }}">
+    <view class="store" bindtap="toStore" data-activity_id="{{ item.shop_id }}">
       <image src="{{ item.shop_img }}"></image>
       <text>{{ item.shop_name }}</text>
       <view>{{ item.distance
@@ -50,3 +50,5 @@
         </view>
     </view>
   </view>
+
+  

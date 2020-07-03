@@ -28,7 +28,9 @@ Page({
     latitude: null,
     longitude: null,
     endActivity: false,
-    endStatus: -1
+    endStatus: -1,
+    loadingBtn: false,
+    islocationLimit: false
   },
 
   /**
@@ -87,9 +89,6 @@ Page({
         if (res.data.activity.musicId){
           that.getMusic(res.data.activity.musicId);
         }
-        
-        
-
         res.data.activity.startTime = that.format(res.data.activity.startTime);
         res.data.activity.endTime = that.format(res.data.activity.endTime);
         res.data.activity.activityImgs = res.data.activity.activityImgs.split(',');
@@ -118,7 +117,7 @@ Page({
             endActivity:true,
             endStatus : 1
           })
-        } else if (nowDate > endTime){
+        } else if ((nowDate > endTime) || res.data.activity.runningStatus == 1){
           let countDown = {
             d: 0,
             h: 0,
@@ -137,6 +136,9 @@ Page({
         if (this.data.latitude) {
           that.getDistance(that.data.latitude, that.data.longitude);
         }
+        this.setData({
+          loadingBtn: true
+        })
       } else {
         wx.showModal({
           title: '温馨提示',
@@ -334,6 +336,11 @@ Page({
         that.setData({
           distance: parseInt(res.data)
         })
+        if (that.activityDetail.locationLimit == 1 && distance > 15000){
+          that.setData({
+            islocationLimit: true
+          })
+        }
         wx.hideLoading();
       } else {
         wx.showModal({
@@ -451,16 +458,14 @@ Page({
           'paySign': data.paySign,
           'success': function (res) {
             //that.submitUserInfo();
+            that.setData({
+              payStatus: true,
+              purchaseShow: false
+            })
             wx.requestSubscribeMessage({
               tmplIds: ['dwRlqFPYBrn7WLC0A8yEZjIxtiMSP8vqPkjjTuv4wVM'],
               success(res) {
-                wx.redirectTo({
-                  url: `/pages/drainage/share/share?id=${that.data.id}&openId=${app.openId}&nickName=${that.data.userInfo.nickName}&headImg=${that.data.userInfo.avatarUrl}`,
-                })
-              }, fail(err) {
-                wx.redirectTo({
-                  url: `/pages/drainage/share/share?id=${that.data.id}&openId=${app.openId}&nickName=${that.data.userInfo.nickName}&headImg=${that.data.userInfo.avatarUrl}`,
-                })
+                
               }
             })
             
@@ -519,9 +524,7 @@ Page({
     }).then(res => {
       if (res.result == 1000) {
         if (res.data.payStatus){
-          // wx.redirectTo({
-          //   url: `/pages/drainage/share/share?id=${that.data.id}&openId=${app.openId}&nickName=${that.data.userInfo.nickName}&headImg=${that.data.userInfo.avatarUrl}`,
-          // })
+  
           that.setData({
             payStatus: true
           })
@@ -562,7 +565,7 @@ Page({
     wx.navigateToMiniProgram({
       appId: 'wxcd43d6c8aa6558c2', // 要跳转的小程序的appid
       path: path, // 跳转的目标页面
-      envVersion: "develop",
+      envVersion: app.envVersion,
       extarData: {
         open: 'auth'
       },

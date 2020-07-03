@@ -20,9 +20,9 @@
     <view class="address">
       <text>{{ shopDetail.address }}</text>
       <view class="right-icon">
-        <image src="/assets/images/wx.png"></image>
+   <image src="/assets/images/wx.png"  bindtap="showWx"></image>
         <text></text>
-        <image src="/assets/images/tel.png"></image>
+        <image bindtap="toTel" src="/assets/images/tel.png"></image>
       </view>
     </view>
   </view>
@@ -68,3 +68,16 @@
       </view> 
   </view>-->
 </view>
+
+
+  <view class="customer-service" hidden="{{ !showPage }}">
+      <view class="hidePage" bindtap="hidePage"></view>
+      <view class="customer-main {{ showPage ? 'active' : ''  }}">
+          <view class="qrcode">
+              <image bindtap="downloadImg" src="{{ shopDetail.wxQr }}" data-url="{{ shopDetail.wxQr }}"></image>
+          </view>
+          <view class="download" bindtap="downloadImg" data-url="{{ shopDetail.wxQr }}">保存二维码到相册</view>
+          <view class="qrcode-text">微信号{{ shopDetail.wxNumber }}</view>
+          <view class="copy-btn" bindtap="copy" data-copy="{{ shopDetail.wxNumber }}">复制微信号去添加</view>
+      </view>
+  </view>

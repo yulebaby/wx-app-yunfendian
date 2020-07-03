@@ -14,7 +14,6 @@
   display: block;
   animation: lines 13s linear infinite;
 }
-
 @keyframes lines {
   0% {
     transform: translateX(750rpx);

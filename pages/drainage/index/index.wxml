@@ -186,7 +186,7 @@
     </view>
   </view>
 
-  <view class="purchase" wx:if="{{  purchaseShow }}">
+  <view class="purchase" wx:if="{{ purchaseShow }}">
     <view class="purchase-main">
       <view class="purchase-position">
         <view class="purchase-close" bindtap="closePurchase"></view>
@@ -226,6 +226,7 @@
   </view>
   <view class="music-icon {{ playMusic ? 'active' : '' }}" wx:if="{{ activityDetail.musicId }}" bindtap="toggleMusic"></view>
   <view class="footer-bottom"></view>
+  <!-- 活动没有结束并且门店vip没有到期并且没有购买 -->
   <view class="footer" wx:if="{{ !endActivity && !payStatus }}">
     <view>
       <button open-type="share" bindtap="onShareAppMessage"></button>
@@ -234,13 +235,17 @@
       <button bindtap="showInputs"></button>
     </view>
   </view>
+  <!-- 活动没有结束并且门店vip没有到期已购买 -->
   <view class="footer-share" wx:if="{{ !endActivity && payStatus }}">
     <button open-type="share" bindtap="onShareAppMessage"></button>
+  </view>
+    <!-- 活动没有结束但是不在购买范围内 -->
+
+    <view class="footer-text" wx:if="{{ !endActivity && islocationLimit }}">
+      您不在活动范围内哦~
   </view>
 
-  <view class="footer-share" wx:if="{{ !endActivity && payStatus }}">
-    <button open-type="share" bindtap="onShareAppMessage"></button>
-  </view>
+  <!-- 活动已结束并且门店vip已到期 -->
 
   <view class="footer-text" wx:if="{{ endActivity }}">
    {{ endStatus == 1 ? '商家未开通VIP系统~' : endStatus == 2 ? '活动已经结束咯~' : '' }}

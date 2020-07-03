@@ -142,6 +142,11 @@ font-weight: normal;
 .store-list{
   width: 670rpx;
   margin: 0 auto;
+  overflow: hidden;
+}
+.store-list>view{
+  overflow: hidden;
+  margin-bottom: 40rpx;
 }
 .store-list>view>image{
   width: 148rpx;

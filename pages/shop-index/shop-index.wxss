@@ -191,3 +191,93 @@
   margin: 0;
   font-weight: normal;
 }
+
+.customer-service{
+  width: 100%;
+  height: 100%;
+  background:rgba(0,0,0,0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.customer-main{
+  width: 750rpx;
+  height: 540rpx;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.customer-header{
+  width: 670rpx;
+  margin: 0 auto;
+  margin-top: 40rpx;
+  overflow: hidden;
+}
+.customer-header view{
+  color: #373C41;
+  font-size: 36rpx;
+  text-align: center;
+  font-weight: bold;
+}
+.customer-header text{
+  color: #373C41;
+  font-size: 26rpx;
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin-top: 10rpx;
+}
+.download{
+  color: #5EA3FE;
+  font-size: 24rpx;
+  text-align: center;
+  text-decoration: underline;
+  margin-top: 10rpx;
+}
+
+.qrcode{
+  width: 190rpx;
+  height: 190rpx;
+  margin: 0 auto;
+  margin-top: 40rpx;
+}
+.qrcode image{
+  width: 100%;
+  height: 100%;
+}
+.qrcode-text{
+  color: #919BA5;
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 20rpx;
+}
+.copy-btn{
+  width: 630rpx;
+  height: 110rpx;
+  line-height: 110rpx;
+  text-align: center;
+  color: #373C41;
+  font-size: 32rpx;
+  background: #FFC41F;
+  border-radius:55rpx;
+  margin: 0 auto;
+  margin-top: 48rpx;
+}
+.customer-main.active{
+  animation: showpage 0.5 ease-out forwards;
+  -webkit-animation: showpage 0.5s ease-out forwards;
+}
+@keyframes showpage{
+  0%{ transform: translateY(686rpx); }
+  100%{ transform: translateY(0rpx); }
+}
+@-webkit-keyframes showpage{
+  0%{ -webkit-transform: translateY(686rpx); }
+  100%{ -webkit-transform: translateY(0rpx); }
+}
+.hidePage{
+  width: 100%;
+  height: 100%;
+}
+
