@@ -83,6 +83,20 @@
 					"pathName": "pages/index/qrcode/qrcode",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/drainage/index/index id=2&openId=o9JSq5eJc7Jx2HivGBz5KCFuKWPY&nickName=lydia&headImg=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FDYAIOgq83er0eX6rdZP9tGiaxl98B6TX0mfNQzJ2pELXjNTeAGUt9McbmuiaAqxAmJbqiaYicqynx0Kz32CmTI50oA%2F132",
+					"pathName": "pages/drainage/index/index id=2&openId=o9JSq5eJc7Jx2HivGBz5KCFuKWPY&nickName=lydia&headImg=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FDYAIOgq83er0eX6rdZP9tGiaxl98B6TX0mfNQzJ2pELXjNTeAGUt9McbmuiaAqxAmJbqiaYicqynx0Kz32CmTI50oA%2F132",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/drainage/index/index",
+					"pathName": "pages/drainage/index/index",
+					"query": "id=2&openId=o9JSq5eJc7Jx2HivGBz5KCFuKWPY&nickName=lydia&headImg=https%3A%2F%2Fwx.qlogo.cn%2Fmmopen%2Fvi_32%2FDYAIOgq83er0eX6rdZP9tGiaxl98B6TX0mfNQzJ2pELXjNTeAGUt9McbmuiaAqxAmJbqiaYicqynx0Kz32CmTI50oA%2F132",
+					"scene": null
 				}
 			]
 		}

@@ -8,7 +8,7 @@
       <text>活动时间：{{ activityDetail.startTime }} - {{ activityDetail.startTime }}</text>
     </view>
     <view class="recommendman">
-      <view class="rule" bindtap="ruleShow">活动规则</view>
+      <!-- <view class="rule" bindtap="ruleShow">活动规则</view> -->
       <view class="recommendman-detail">
         <image src="{{ headImg }}"></image>
         <text>{{ nickName }} 送你</text>
@@ -161,11 +161,14 @@
         <image src="https://ylbb-wxapp.oss-cn-beijing.aliyuncs.com/branch-store/thrbg8.png"></image>
       </view>
       <view class="activity-detail">
-        <text>
-    {{ activityDetail.activityIntroduce }}
-    </text>
+        <text>{{ activityDetail.activityIntroduce }}</text>
         <image wx:for="{{ activityDetail.activityImgs }}" wx:key="index" src="{{ item }}" mode="widthFix"></image>
-
+        <view class="active_view">
+          <view class="active_title">- 活动规则 -</view>
+          <view class="active_content">
+            <text>\n{{activityDetail.activityRole}}</text>
+          </view>
+        </view>
       </view>
     </view>
 
@@ -179,12 +182,12 @@
 
     </view>
   </view>
-  <view class="rule-open" wx:if="{{ ruleStatus }}">
+  <!-- <view class="rule-open" wx:if="{{ ruleStatus }}">
     <view class="open-main">
       <view>{{ activityDetail.activityRole }}</view>
       <text bindtap="ruleHide">我已了解</text>
     </view>
-  </view>
+  </view> -->
 
   <view class="purchase" wx:if="{{ purchaseShow }}">
     <view class="purchase-main">
@@ -251,7 +254,9 @@
    {{ endStatus == 1 ? '商家未开通VIP系统~' : endStatus == 2 ? '活动已经结束咯~' : '' }}
   </view>
 
-  <view class="make" bindtap="toStoreDeit">
-    <text>我要</text>
-    <text>制作</text>
+  <view class="make make0" bindtap="makePhone">
+    <view>报名咨询</view>
+  </view>
+  <view class="make make1" bindtap="toStoreDeit">
+    <view>我要制作</view>
   </view>

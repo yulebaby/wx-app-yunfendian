@@ -573,5 +573,11 @@ Page({
         // 打开成功  
       }
     })
+  },
+  // 拨打电话
+  makePhone () {
+    wx.makePhoneCall({
+      phoneNumber: this.data.shopBaseInfo.shopPhone,
+    })
   }
 })

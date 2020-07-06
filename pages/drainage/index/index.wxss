@@ -828,8 +828,8 @@
   width: 100%;
 }
 .make{
-  width:100rpx;
-  height:80rpx;
+  /* width:100rpx; */
+  height:51rpx;
   background:rgba(255,92,64,1);
   box-shadow:0rpx 6rpx 16rpx -2rpx rgba(255,168,44,1);
   border-radius:20rpx 0px 0px 20rpx;
@@ -839,9 +839,12 @@
   top: 372rpx;
   right: 0;
 }
-.make text{
-  display: block;
+.make1 {
+  top: 440rpx;
+}
+.make view{
   text-align: center;
+  padding: 10rpx;
 }
 .make text:nth-child(1){
   margin-top: 6rpx;
@@ -873,4 +876,12 @@
   text-align: center;
   color: #999;
   font-size: 32rpx;
+}
+.active_title {
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.active_content {
+  line-height: 40rpx;
 }
